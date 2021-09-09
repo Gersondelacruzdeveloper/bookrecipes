@@ -1,0 +1,186 @@
+
+
+.detail_wrapper{
+overflow:hidden;
+margin-top:20px;
+}
+.detail-image{
+width:30%;
+float:left;
+margin-left:200px;
+margin-top:113px;
+}
+
+.side_description{
+width:30%;
+float:left;
+margin-left:100px;
+}
+.side_description img{
+width:40px;
+}
+.cooking_time{
+font-size:15px;
+margin-left:20px;
+}
+.title{
+margin-top:20px;
+}
+.img_side img{
+width:20px;
+margin-left:10px;
+}
+.description{
+clear:left
+padding:10px;
+text-align: justify;
+width:50%;
+overflow:auto;
+font-family:dinot, sans-serif;
+font-size:18px;
+margin-left:200px;
+}
+
+.nutri_title{
+font-weight:bold;
+}
+.nutri_name{
+font-weight:bold;
+}
+
+.nutri_name_container{
+margin-top:20px;
+}
+
+.detail_title{
+margin-top:100px;
+}
+
+/* Review or comment  section */
+#user_circle{
+font-size:30px;
+}
+.comments{
+font-family:dinot, sans-serif;
+font-size:15px;
+margin-left:200px;
+margin-top:30px;
+position:relative;
+width:50%;
+}
+
+#user_name{
+top: -5px;
+position:relative;
+font-family:"Amazon Ember", Arial, sans-serif
+color:rgb(15, 17, 17);
+}
+
+.date_created{
+Family: "Amazon Ember", Arial, sans-serif;
+color:rgb(86, 89, 89);
+font-size:14px;
+margin:0px;
+padding:0px;
+}
+.review_content{
+color:rgb(15, 17, 17);
+ont-family:"Amazon Ember", Arial, sans-serif;
+font-size:14px;
+margin:0px;
+padding:0px;
+}
+
+.sub_container{
+margin:20px;
+}
+.btn-color{
+background-color:rgb(12, 95, 95);
+color:white;
+}
+
+
+.btn-color:hover{
+background-color: #118888;
+color:white;
+}
+
+
+#comments{
+margin-top:10px;
+font-family:"chronicle display", Times, "times new roman", serif;
+font-size:30px;
+text-align:center;
+}
+
+.comments_texterea{
+width:30%;
+margin:auto;
+}
+
+@media only screen and (max-width:750px){
+
+.detail_wrapper{
+overflow:hidden;
+margin-top:200px;
+}
+.detail-image{
+width: 90%;
+float:none;
+margin:auto;
+}
+
+.side_description{
+width:auto;
+float:none;
+margin:auto;
+text-align:center;
+}
+
+
+.detail_title{
+margin-top:10px;
+text-align:center;
+font-family:"chronicle display", Times, "times new roman", serif;
+font-size:30px;
+}
+
+
+.date{
+font-family:dinot, sans-serif;
+color:rgb(127, 127, 127);
+font-size:15px;
+text-align:center;
+}
+
+.description{
+margin:auto;
+width:90%;
+
+}
+
+#comments{
+margin-top:10px;
+font-family:"chronicle display", Times, "times new roman", serif;
+font-size:30px;
+text-align:center;
+
+}
+
+.comments_texterea{
+width:80%;
+margin:auto;
+}
+
+
+.comments{
+font-family:dinot, sans-serif;
+font-size:15px;
+margin:auto;
+margin-top:30px;
+position:static;
+width:90%;
+}
+
+
+}

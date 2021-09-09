@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    body{
+    background-color:#f2f2f2;
+    }
+
+    .text-wrapper{
+    width:800px;
+    text-align: center;
+    margin:auto;
+    margin-top:50px;
+    }
+    .in_touch{
+    margin:20px;
+    }
+
+    @media only screen and (max-width:750px){
+     .text-wrapper{
+    width:80%;
+    text-align: center;
+    margin:auto;
+    margin-top:50px;
+    }
+
+    .text-wrapper h1{
+    font-size:30px;
+
+    }
+      .text-wrapper h5{
+    font-size:30px;
+    }
+
+    .in_touch{
+    margin-top:20px;
+
+    }
+
+
+
+
+
+
+ }
+
+
+</style>
+
+
+<section>
+    <h2 class="land_page_url">oucalculator.co.uk</h2>
+<div class="text-wrapper">
+<h1>About oucalculator.co.uk</h1>
+<h5>Who is behind oucalculator.co.uk?</h5>
+
+ <p>We are a solid, independent software developers. We are based in The Vale of Glamorgan, Wales.
+    We have extensive docs and we improve the software with frequent new releases.
+    We respect your privacy and take significant efforts to protect all of your data. We do not sell or trade your data to any third-party.</p>
+
+<h5>Why oucalculator.co.uk ?</h5>
+     oucalculator.co.uk allow you to calculate and predict your Open university degree!<br>
+    We'd love to hear about your experience with our service! If you have feedback or need help, you can reach us.
+
+    <h1 id="in_touch"> Get in touch!</h1>
+    <p>Follow us, share your feedback, ask a question or just say hello.</p>
+    <p>Email: oucalculator@gmail.com</p>
+
+</div>
+</section>
+
+
+<!--FOOTER OF THE PAGE-->
+<footer>
+    <p></p>
+
+
+</footer>
+
+{% endblock content %}

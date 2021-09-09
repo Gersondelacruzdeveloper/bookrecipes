@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+
+<section>
+
+
+    <div class="detail_wrapper">
+
+    <div class="detail-image">
+       <img src="{{image.url}}" style="width:100%">
+    </div>
+
+    <div class="side_description">
+        <h1 class="detail_title">Details</h1>
+
+        <p class="date">{{date_created}}</p>
+        {% if service_size %}
+      <span><img src="{% static 'images/plates.png' %}"> SERVES  {{service_size}} </span>
+        {% endif %}
+            {% if cooking_time %}
+        <span class="cooking_time"><i class="far fa-clock"></i> TIME {{cooking_time}} MINUTES </span>
+          {% endif %}
+
+
+        {% if title %}
+         <p class="title">{{title}}</p>
+           {% endif %}
+
+
+       <div class="nutri_name_container">
+            {% if calories %}
+                <span class="nutri_name">CALORIES: </span><span>{{calories}}</span><hr>
+           {% endif %}
+              {% if fat %}
+                <span class="nutri_name">FAT: </span><span>{{fat}}</span><hr>
+           {% endif %}
+                 {% if protein %}
+                <span class="nutri_name">PROTEIN: </span><span>{{protein}}</span><hr>
+                {% endif %}
+             {% if carbohidrates %}
+                <span class="nutri_name" >CARBOHYDRATES: </span><span>{{carbohidrates}}</span><hr>
+                {% endif %}
+                 {% if fibre %}
+                <span class="nutri_name">FIBRE: </span><span>{{fibre}}</span><hr>
+                   {% endif %}
+                    {% if salt %}
+                <span class="nutri_name" >SALT: </span><span>{{salt}}</span><hr>
+                 {% endif %}
+       </div>
+
+    </div>
+    </div>
+
+    <div class="description">
+    <p>{{method|safe}}<p>
+    </div>
+
+
+    	<h5 id="comments">Comments: {{recepes.reviews.all.count}}</h5>
+
+
+		<hr>
+
+
+    	{% if request.user.is_authenticated %}
+		<form class="comments_texterea"  action="" method="POST" enctype="multipart/form-data">
+			{% csrf_token %}
+			<textarea required class="form-control" placeholder="Leave a comment..." name="comment"></textarea>
+			<br>
+			<input class="btn btn-info" type="submit" value="Submit">
+		</form>
+		{% else %}
+			<p class="text-center">Create an account to comment:</p>
+         <div class="text-center">
+			<a class="btn btn-color" href="{% url 'signup' %}">Register/Login</a>
+        </div>
+		{% endif %}
+
+
+   <div class="comments">
+        {% for review in recepes.reviews.all %}
+       <div class="sub_container">
+        <i id="user_circle" class="fas fa-user-circle"></i><span id="user_name"> {{review.user }}</span>
+         <p  class="date_created"> Commented on {{ review.created }}</p>
+         <p class="review_content">{{review.content }}</p>
+       </div>
+        {% endfor %}
+
+
+   </div>
+
+</section>
+
+
+<!--FOOTER OF THE PAGE-->
+<footer>
+    <p></p>
+
+</footer>
+
+
+
+{% endblock content %}

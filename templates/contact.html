@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+
+
+<section class="contact_wrapper">
+
+	<p class="contact_word">CONTACT</p>
+
+	   <div class="contact_form">
+			<a href=""></a>
+		    <p>Looking forward to answering your email</p>
+
+			<form id="contact-form" method="POST" action=" {% url 'send_email' %}">
+				{% csrf_token %}
+				<a name="contact"></a>
+
+				<input required class="input-field" type="text" name="name" placeholder="Name">
+
+				<input required class="input-field" type="text" name="subject" placeholder="Subject">
+
+				<input required class="input-field" type="email" name="email" placeholder="Email">
+
+				<textarea required  class="input-field" name="message" placeholder="Type your message here..."></textarea>
+
+				<input  class="form_btn" id="submit-btn" type="submit" value="Submit">
+			</form>
+		</div>
+
+
+
+	</section>
+
+
+<!--FOOTER OF THE PAGE-->
+<footer>
+    <p></p>
+
+
+</footer>
+
+{% endblock content %}

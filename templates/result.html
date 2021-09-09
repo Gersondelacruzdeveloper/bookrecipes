@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<section>
+
+     {% if navbar_input%}
+     <h6  class="text-center home_tile">YOU SEARCHED FOR  "{{navbar_input|upper}}"</h6>
+      {% else %}
+      <h2 class="text-center home_tile"> All Products </h2>
+      {% endif %}
+
+
+<div class="list_photo_wrapper">
+{% for recepe in recepes %}
+
+       <div class="list_photo_card">
+
+  <a  id="main_image" href="{% url 'detail' recepe.pk %}"> <img src="{{recepe.image.url}}">
+  </a>
+      <div id="title"> <p>{{recepe.title|slice:":25"|title}}..</p></div>
+      <div class="by_name"> By {{recepe.user}} </div>
+
+      <div class="comments_sign">
+       <i id="comments_sign" class="far fa-comments"> {{recepe.reviews.all.count}} <spa class="line"></span></i>
+      </div>
+   </div>
+          {% empty %}
+        <h5> No results for <span style="color:rgb(12, 95, 95)">{{navbar_input}}</span> </h5>
+
+
+    {% endfor %}
+
+</div>
+
+
+
+
+
+<!--
+    <div class="photo_example">
+      <img src="{% static 'images/vineyard.jpeg' %}">
+    </div>
+    -->
+
+</section>
+
+
+<!--FOOTER OF THE PAGE-->
+<footer>
+    <p></p>
+
+</footer>
+
+
+{% endblock content %}

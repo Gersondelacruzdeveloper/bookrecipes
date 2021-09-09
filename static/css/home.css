@@ -1,0 +1,77 @@
+.list_photo_wrapper {
+width:90%;
+margin:auto;
+display:flex;
+flex-wrap: wrap;
+justify-content: center;
+}
+
+
+.list_photo_card{
+margin:10px;
+padding-bottom:30px;
+background-color:white;
+border-radius:5px;
+}
+
+
+#main_image img{
+width:300px;
+height:310px;
+object-fit:cover;
+}
+
+#title{
+font-family:sans-serif;
+font-size: 18px;
+text-align:center;
+margin-top:10px;
+font-weight:bold;
+color:grey;
+}
+
+.by_name{
+font-family:sans-serif;
+font-weight:bold;
+color:grey;
+text-align:center;
+}
+
+.comments_sign{
+color:rgb(12, 95, 95);
+text-align:center;
+margin-top:25px;
+font-size:14px;
+
+}
+
+#main_image img:hover{
+padding-bottom:30px;
+}
+.img_icon img{
+width:20px;
+
+}
+
+.img_icon{
+margin-left:20px;
+}
+
+#comments_sign{
+font-size:20px;
+margin:auto;
+}
+.home_tile{
+margin-top:100px;
+text-align:center;
+}
+
+/* https://www.deliciousmagazine.co.uk/recipes/*/
+@media only screen and (max-width:750px){
+.home_tile{
+margin-top:200px;
+text-align:center;
+}
+
+
+}

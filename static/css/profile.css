@@ -1,0 +1,26 @@
+.edit_btn{
+font-size:10px;
+background-color:rgb(12, 95, 95);
+}
+
+.delete_btn{
+font-size:10px;
+background-color:rgb(12, 95, 95);
+}
+
+.btn_all{
+text-align:center;
+margin-top:20px;
+}
+
+.btn_all i{
+color:white;
+}
+
+
+
+
+@media only screen and (max-width:750px){
+
+
+}

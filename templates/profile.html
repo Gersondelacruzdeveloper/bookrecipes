@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<section>
+
+    <h1 class="home_tile">My Recipes</h1>
+
+        <div style="text-align:center;">
+    <a href="{% url 'form' %}"><button id="btn_add" class="btn letter_style "><i class="fas fa-plus-circle"> Add Recepes </i></button></a>
+     </div>
+
+<div class="list_photo_wrapper">
+{% for recepe in recepes %}
+    <div class="list_photo_card">
+  <a id="main_image"   href="{% url 'detail' recepe.pk %}"> <img src="{{recepe.image.url}}">
+  </a>
+      <div id="title"> <p>{{recepe.title|slice:":25"|title}}..</p></div>
+      <div class="by_name"> By {{recepe.user}} </div>
+
+         <div class="comments_sign">
+       <i id="comments_sign" class="far fa-comments"> {{recepe.reviews.all.count}} <spa class="line"></span></i>
+      </div>
+
+            <div class="btn_all">
+            <a href="{% url 'edit' recepe.id %}"><button class="btn edit_btn"><i class="far fa-edit"> Edit</i></button></a>
+             <a href="{% url 'delete' recepe.id %}"><button class="btn delete_btn "><i class="fas fa-trash-alt"> Delete</i></button></a>
+                </div>
+   </div>
+    {% endfor %}
+
+</div>
+
+
+
+
+
+
+
+<!--
+    <div class="photo_example">
+      <img src="{% static 'images/vineyard.jpeg' %}">
+    </div>
+    -->
+
+</section>
+
+
+<!--FOOTER OF THE PAGE-->
+<footer>
+    <p></p>
+
+</footer>
+
+
+</script>
+
+{% endblock content %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<header>
+  <h2 class="text-center">OU degree Calculator </h2>
+</header>
+
+
+<section style="text-align:center">
+<!--CARD DISPLAY THE TOTAL CUSTOMER-->
+<!--HTML TABLE TO DISPLAY THE DATA-->
+  <div class="delete_wraper">
+    <h4>Are you sure you want to delete {{title|slice:":25"|title}}?</h4>
+    <form action=" " method="post">
+    {% csrf_token %}
+        <input class="btn"  style="background-color:red" type="submit" value="Confirm">
+    </form>
+      <div class="cancel_btn">
+           <a href="{% url 'profile' %}"><button class="btn" style="background-color:white">Cancel</button></a>
+      </div>
+      </div>
+</section>
+
+
+<!--FOOTER OF THE PAGE-->
+<footer>
+    <p></p>
+
+</footer>
+
+{% endblock content %}
