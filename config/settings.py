@@ -36,7 +36,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.bool("DEBUG")
+DEBUG = env.bool("DEBUG", default=False)
 
 ALLOWED_HOSTS = ['myrecipesbook1.herokuapp.com', 'localhost', '127.0.0.1']
 
@@ -158,8 +158,8 @@ MEDIA_URL = '/images/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # for static files in production
+STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles')) # new
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' # new
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
