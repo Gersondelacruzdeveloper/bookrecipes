@@ -10,18 +10,14 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
+
 from environs import Env
 env = Env()
 env.read_env()
 
-"""
-import environ
-env = environ.Env()
-environ.Env.read_env()
-"""
 
-import os
 from pathlib import Path
+import os
 
 # Build paths inside the project
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -32,11 +28,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'eVYUKkSuIuU_CEqV7e04EoySG2O0tS1TWnbEwul293A'
+SECRET_KEY = env.str("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = env.bool("DEBUG", default=False)
+
 
 ALLOWED_HOSTS = ['myrecipesbook1.herokuapp.com', 'localhost', '127.0.0.1']
 
@@ -164,7 +160,6 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
 
-
 # django-crispy-forms
 CRISPY_TEMPLATE_PACK = 'bootstrap4' #new
 
@@ -186,6 +181,13 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "oucalculator@gmail.com"
 EMAIL_HOST_PASSWORD = 'wraaanoeenpeklry'
+
+SECURE_SSL_REDIRECT = env.bool("DJANGO_SECURE_SSL_REDIRECT", default=True)
+SECURE_HSTS_SECONDS = env.int("DJANGO_SECURE_HSTS_SECONDS", default=2592000)
+SECURE_HSTS_INCLUDE_SUBDOMAINS = env.bool("DJANGO_SECURE_HSTS_INCLUDE_SUBDOMAINS", default=True)
+SECURE_HSTS_PRELOAD = env.bool("DJANGO_SECURE_HSTS_PRELOAD", default=True)
+SESSION_COOKIE_SECURE = env.bool("DJANGO_SECURE_COOKIE_SESSION", default=True)
+CSRF_COOKIE_SECURE = env.bool("DJANGO_COOKIE_SECURE", default=True)
 
 
 AWS_ACCESS_KEY_ID = 'AWS_ACCESS_KEY_ID=AKIA54FAHMQPHYKCI4UN'
