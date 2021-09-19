@@ -92,24 +92,10 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 
-
-
 DATABASES = {
     "default": env.dj_db_url("DATABASE_URL")
 }
 
-"""
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'recipes_database',
-        'USER': 'postgres',
-        'PASSWORD': 'Gerson1914',
-        'HOST':'localhost',
-        'PORT':'5432',
-    }
-}
-"""
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -148,15 +134,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 
+
 STATIC_URL = '/static/'
 MEDIA_URL = '/images/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+
 # for static files in production
 STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles')) # new
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' # new
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'images')
 
 
 # django-crispy-forms
@@ -176,10 +164,10 @@ CKEDITOR_CONFIGS = {
 # for emails
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
+EMAIL_PORT = env.int('EMAIL_PORT')
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = "oucalculator@gmail.com"
-EMAIL_HOST_PASSWORD = 'wraaanoeenpeklry'
+EMAIL_HOST_USER = env.str("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
 
 SECURE_SSL_REDIRECT = env.bool("DJANGO_SECURE_SSL_REDIRECT", default=True)
 SECURE_HSTS_SECONDS = env.int("DJANGO_SECURE_HSTS_SECONDS", default=2592000)
@@ -187,15 +175,14 @@ SECURE_HSTS_INCLUDE_SUBDOMAINS = env.bool("DJANGO_SECURE_HSTS_INCLUDE_SUBDOMAINS
 SECURE_HSTS_PRELOAD = env.bool("DJANGO_SECURE_HSTS_PRELOAD", default=True)
 SESSION_COOKIE_SECURE = env.bool("DJANGO_SECURE_COOKIE_SESSION", default=True)
 CSRF_COOKIE_SECURE = env.bool("DJANGO_COOKIE_SECURE", default=True)
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-
-AWS_ACCESS_KEY_ID = 'AWS_ACCESS_KEY_ID=AKIA54FAHMQPHYKCI4UN'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'website-recipes'
+AWS_ACCESS_KEY_ID = env.str("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = env.str("AWS_SECRET_ACCESS_KEY")
+AWS_STORAGE_BUCKET_NAME = env.str("AWS_STORAGE_BUCKET_NAME")
 AWS_S3_ADDRESSING_STYLE = 'virtual'
 AWS_S3_HOST = 's3.eu-west-2.amazonaws.com'
 AWS_S3_REGION_NAME = 'eu-west-2'
-
 
 #django configurations
 AWS_S3_FILE_OVERWRITE = False

@@ -19,7 +19,6 @@ class Recepes(models.Model):
     salt = models.CharField(max_length=201, null=True, blank=True)
 
 
-
     def __str__(self):
         return str(self.title)
 

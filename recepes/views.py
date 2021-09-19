@@ -62,8 +62,9 @@ def detail_recepes(request,pk):
 
 @login_required(login_url= 'login')
 def profile_page(request):
-    user = request.user
-    recepes = Recepes.objects.filter(user=user)
+    if request.user:
+        user = request.user
+        recepes = Recepes.objects.filter(user=user)
     context = {'recepes':recepes}
     return render(request, 'profile.html', context)
 
