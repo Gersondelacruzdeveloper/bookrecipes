@@ -31,7 +31,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env.str("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = False
+"""
 DEBUG = env.bool("DEBUG", default=False)
+"""
 
 ALLOWED_HOSTS = ['.herokuapp.com', 'localhost', '127.0.0.1','www.allyourrecipes.co.uk','allyourrecipes.co.uk']
 
@@ -140,7 +143,7 @@ STATICFILES_DIRS = [
 ]
 # for static files in production
 STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles')) # new
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' # new
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' # new
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
 
