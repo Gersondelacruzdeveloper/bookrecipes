@@ -145,7 +145,6 @@ font-family:"chronicle display", Times, "times new roman", serif;
 font-size:30px;
 }
 
-
 .date{
 font-family:dinot, sans-serif;
 color:rgb(127, 127, 127);
@@ -182,5 +181,13 @@ position:static;
 width:90%;
 }
 
+.title{
+margin-top:20px;
+}
+
+.head-title{
+margin:auto;
+width:90%;
+}
 
 }
